@@ -6,8 +6,8 @@ import Solutions as S
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('-p', '--problem', action='store', type=int, help='specify problem number <1...')
-parser.add_argument('-i', '--input', action='store', type=str, help='specify override input file')
+parser.add_argument('-p', '--problem', action='store', type=int, help='(optional) specify problem number <1...{}>'.format(len(S.solutions)))
+parser.add_argument('-i', '--input', action='store', type=str, help='(optional) specify override input')
 
 args = parser.parse_args()
 
