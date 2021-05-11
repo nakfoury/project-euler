@@ -1,4 +1,3 @@
-import pytest
 import Solutions as S
 
 
@@ -16,7 +15,9 @@ def test_primeFactorization():
     assert S.primeFactorization(16) == [2, 2, 2, 2]
     assert S.primeFactorization(105) == [3, 5, 7]
 
-def test_gcf():
-    assert S.gcf(1, 1) == 1
-    assert S.gcf(2, 4) == 2
-    assert S.gcf(48, 180) == 12
+def test_lcm():
+    assert S.lcm(1, 1) == 1
+    assert S.lcm(2, 4) == 4
+    assert S.lcm(2, 2, 2) == 2
+    assert S.lcm(2, 2, 2, 4) == 4
+    assert S.lcm(5, 3, 6) == 30

@@ -1,4 +1,6 @@
 from math import sqrt, ceil
+from functools import reduce
+from itertools import chain
 
 def isPrime(n):
     if n == 2:
@@ -27,16 +29,11 @@ def primeFactorization(n):
     return result
 
 
-def gcf(x, y):
+def lcm(*argv):
     result = 1
-    # using primeFactorization
-    fx = primeFactorization(x)
-    fy = primeFactorization(y)
+    prime_factorizations = list(map(primeFactorization, argv))
 
-    # loop through unique factors of each number
-    for f in set(fx+fy):
-        # take minimum power of each
-        result *= f**min(fx.count(f), fy.count(y))
+    for f in set(list(chain.from_iterable(prime_factorizations))):  # loop through unique factors of any number
+        result *= f**max([pf.count(f) for pf in prime_factorizations])  # take maximum power of each
 
     return result
-    
